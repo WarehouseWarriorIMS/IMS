@@ -12,7 +12,7 @@
 				<a href="./dashboard.php"><i class="fas fa-dragon"></i> <span class="menuText">Dashboard</span></a>
 			</li>
 			<li>
-				<a href=""><i class="fa-solid fa-file-invoice-dollar"></i> <span class="menuText">Orders</span></a>
+				<a href="./orders.php"><i class="fa-solid fa-file-invoice-dollar"></i> <span class="menuText">Orders</span></a>
 			</li>
 			<li>
 				<a href="./addproduct.php"><i class="fa fa-cart-plus"></i> <span class="menuText">Add Product</span></a>

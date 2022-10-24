@@ -1,9 +1,9 @@
-<?php
+ <?php
 	//start the session
 	session_start();
 
 	if(!isset($_SESSION['user'])) header('location: login.php');
-	$_SESSION['table'] = 'addproduct';
+	$_SESSION['table'] = 'products';
 	$user = $_SESSION['user'];
 
 	
@@ -68,6 +68,7 @@
 								<th>Item Category</th>
 								<th>Item Quantity</th>
 								<th>Item Description</th>
+								<th>Edit Item</th>
 							</tr>';
 
 
@@ -89,6 +90,12 @@
 									  <td>'.$ItemCat.'</td>
 									  <td>'.$ItemQuant.'</td>
 									  <td>'.$ItemDesc.'</td>
+									  <td> 
+										<form action="editproduct.php" method="POST">
+											<input type ="hidden" id="ItemName" name="ItemName" value="'.$ItemName.'"/>
+											<button type="submit" class="editItem_Button"><i class="fa fa-plus "></i> Edit</button>
+										</form>
+									  </td>
 								      <tr>';
 								}
 						}

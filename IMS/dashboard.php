@@ -25,7 +25,7 @@
 			<div class="Dashboard_Content">
 				<div class="Dashboard_Content_Main">
 					<main>
-						<h1>Dashboard</h1>
+						<h1 class="Db">DASHBOARD</h1>
 						<div class="date">
 							<input type="date">
 						</div>
@@ -38,12 +38,6 @@
 										<h1>$25,025</h1>
 									</div>
 									<div class="progress">
-										<svg>
-											<circle cx='38' cy='38' r='36'></circle>	
-										</svg>
-										<div class="number">
-											<p>81%</p>
-										</div>	
 									</div>
 								</div>
 								<small class="text-muted">Last 24 Hours</small>
@@ -57,12 +51,6 @@
 										<h1>$14,160</h1>
 									</div>
 									<div class="progress">
-										<svg>
-											<circle cx='38' cy='38' r='36'></circle>	
-										</svg>
-										<div class="number">
-											<p>62%</p>
-										</div>	
 									</div>
 								</div>
 								<small class="text-muted">Last 24 Hours</small>
@@ -75,13 +63,7 @@
 										<h3>Total Income</h3>
 										<h1>$10,864</h1>
 									</div>
-									<div class="progress">
-										<svg>
-											<circle cx='38' cy='38' r='36'></circle>	
-										</svg>
-										<div class="number">
-											<p>44%</p>
-										</div>	
+									<div class="progress">	
 									</div>
 								</div>
 								<small class="text-muted">Last 24 Hours</small>

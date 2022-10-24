@@ -15,7 +15,7 @@
 
 	
 	try{
-		$command = "INSERT INTO $table_name(`ItemName`, `ItemCategory`, `ItemQuantity`, `ItemDescription`) VALUES ('".$ItemName."', '".$Category."', '".$Quantity."', '".$Description."')";
+		$command = "INSERT INTO $table_name(`Item Name`, `Item Category`, `Item Quantity`, `Item Description`) VALUES ('".$ItemName."', '".$Category."', '".$Quantity."', '".$Description."')";
 
 		$conn = new PDO("mysql:host=localhost;dbname=inventory_ww", 'root', '');
 		$conn->exec($command);

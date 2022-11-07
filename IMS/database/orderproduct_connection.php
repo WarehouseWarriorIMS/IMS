@@ -39,7 +39,7 @@
 
 		$response = [
 			'success' => true, 
-			'message' => $CurrentName . ' has been successfully ordered!'
+			'message' => $ItemName . ' has been ordered successfully!'
 		];
 	} catch (PDOException $e){
 		$response = [

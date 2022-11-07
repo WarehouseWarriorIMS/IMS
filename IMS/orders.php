@@ -5,7 +5,12 @@
 	if(!isset($_SESSION['user'])) header('location: login.php');
 	$_SESSION['table'] = 'orders';
 	$user = $_SESSION['user'];
-	$UserName = $user['FirstName']." ".$user['LastName']
+	$UserName = $user['FirstName']." ".$user['LastName'];
+
+	if(isset($_SESSION['response'])){ 
+			$response_message = $_SESSION['response']['message'];
+			$is_success = $_SESSION['response']['success'];
+	}
 
 	
 
@@ -37,7 +42,7 @@
 								<th>Item Category</th>
 								<th>Item Quantity</th>
 								<th>Item Description</th>
-								<th>Edit Item</th>
+								<th>Order Item</th>
 							</tr>';
 
 
@@ -66,7 +71,12 @@
 											<button type="submit" class="editItem_Button"><i class="fa fa-plus "></i>Order</button>
 										</form>
 									  </td>
-								      </tr>';
+								      </tr>
+									<div class="responseMessage">
+										<p class="responseMessage <?= $is_success ? `responseMessage__success` : `responseMessage__error` ?>" >
+											<?= $response_message ?>
+										</p>
+									</div>';
 								}
 						}
 						echo '<table>
@@ -77,6 +87,9 @@
 								<th>Item Quantity</th>
 								<th>Item Description</th>
 								<th>Date Ordered</th>
+								<th>Delivery Status</th>
+								<th>Date Delivered</th>
+								<th>Confirm Delivery</th>
 							</tr>';
 
 
@@ -94,6 +107,10 @@
 								$ItemQuant = $row['Item Quantity'];
 								$ItemDesc = $row['Item Description'];
 								$DateOrdered = $row['Date Ordered'];
+								$Delivered = $row['Delivered'];
+								if($Delivered == 0)$Delivered = 'Not Delivered';
+								else $Delivered = 'Delivered';
+								$DateDelivered= $row['Date Delivered'];
 			
 								echo '<tr>
 									  <td>'.$BuyerName.'</td>
@@ -102,7 +119,18 @@
 									  <td>'.$ItemQuant.'</td>
 									  <td>'.$ItemDesc.'</td>
 									  <td>'.$DateOrdered.'</td>
-								      </tr>';
+									  <td>'.$Delivered.'</td>
+									  <td>'.$DateDelivered.'</td>
+									  <td>
+										<form action="database/deliveredproduct_connection.php" method="POST">
+											<input type ="hidden" id="ItemName" name="ItemName" value="'.$ItemName.'"/>
+											<input type ="hidden" id="BuyerName" name="BuyerName" value="'.$UserName.'"/>
+											<button type="submit" class="editItem_Button"><i class="fa fa-plus "></i>Delivered</button>
+										</form>
+									  </td>
+								      </tr>
+									';
+									
 							}
 						}
 					?>

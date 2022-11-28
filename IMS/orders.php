@@ -42,6 +42,7 @@
 								<th>Item Category</th>
 								<th>Item Quantity</th>
 								<th>Item Description</th>
+								<th>Item Price</th>
 								<th>Order Item</th>
 							</tr>';
 
@@ -58,12 +59,14 @@
 								$ItemCat = $row['Item Category'];
 								$ItemQuant = $row['Item Quantity'];
 								$ItemDesc = $row['Item Description'];
+								$ItemPrice = $row['Item Price'];
 			
 								echo '<tr>
 									  <td>'.$ItemName.'</td>
 									  <td>'.$ItemCat.'</td>
 									  <td>'.$ItemQuant.'</td>
 									  <td>'.$ItemDesc.'</td>
+									  <td>'.$ItemPrice.'</td>
 									  <td> 
 										<form action="database/orderproduct_connection.php" method="POST">
 											<input type ="hidden" id="ItemName" name="ItemName" value="'.$ItemName.'"/>
@@ -86,6 +89,7 @@
 								<th>Item Category</th>
 								<th>Item Quantity</th>
 								<th>Item Description</th>
+								<th>Item Price</th>
 								<th>Date Ordered</th>
 								<th>Delivery Status</th>
 								<th>Date Delivered</th>
@@ -106,6 +110,7 @@
 								$ItemCat = $row['Item Category'];
 								$ItemQuant = $row['Item Quantity'];
 								$ItemDesc = $row['Item Description'];
+								$ItemPrice = $row['Item Price'];
 								$DateOrdered = $row['Date Ordered'];
 								$Delivered = $row['Delivered'];
 								if($Delivered == 0)$Delivered = 'Not Delivered';
@@ -118,6 +123,7 @@
 									  <td>'.$ItemCat.'</td>
 									  <td>'.$ItemQuant.'</td>
 									  <td>'.$ItemDesc.'</td>
+									  <td>'.$ItemPrice.'</td>
 									  <td>'.$DateOrdered.'</td>
 									  <td>'.$Delivered.'</td>
 									  <td>'.$DateDelivered.'</td>

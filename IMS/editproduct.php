@@ -29,7 +29,9 @@
 			<?php include('topnav.php') ?>
 			<div class="Dashboard_Content">
 				<div class="Dashboard_Content_Main">
-					<h1 class="section_header"><center>Edit Selected Product</center></h1>
+					<?php
+					echo '<h1 class="section_header"><center>Edit '.$ItemName.'</center></h1>'
+					?>
 						<div id="addprod_Container">
 								<form action="database/editproduct_connection.php" method="POST" class="appForm">
 									<div class="appFormInput_Container">
@@ -47,6 +49,10 @@
 									<div class="appFormInput_Container">
 										<label for="Description">Description:</label>
 										<input type="text" class="appFormInput"id="Description" name="Description"/>
+									</div>
+									<div class="appFormInput_Container">
+										<label for="Price">Price:</label>
+										<input type="text" class="appFormInput"id="Price" name="Price"/>
 									</div>
 										<?php echo '<input type ="hidden" id="CurrentName" name="CurrentName" value="'.$ItemName.'"/>'?>
 									<button type="submit" class="addItem_Button"><i class="fa fa-plus "></i> Confirm Edit</button>

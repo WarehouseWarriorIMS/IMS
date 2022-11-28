@@ -47,6 +47,10 @@
 											<label for="Description">Description:</label>
 											<input type="text" class="appFormInput"id="Description" name="Description"/>
 										</div>
+										<div class="appFormInput_Container">
+											<label for="Price">Price:</label>
+											<input type="text" class="appFormInput"id="Price" name="Price"/>
+										</div>
 										<button type="submit" class="addItem_Button"><i class="fa fa-plus "></i> Add Item</button>
 									</form>
 									<?php 
@@ -68,6 +72,7 @@
 								<th>Item Category</th>
 								<th>Item Quantity</th>
 								<th>Item Description</th>
+								<th>Item Price</th>
 								<th>Edit Item</th>
 							</tr>';
 
@@ -84,12 +89,14 @@
 								$ItemCat = $row['Item Category'];
 								$ItemQuant = $row['Item Quantity'];
 								$ItemDesc = $row['Item Description'];
+								$ItemPrice = $row['Item Price'];
 			
 								echo '<tr>
 									  <td>'.$ItemName.'</td>
 									  <td>'.$ItemCat.'</td>
 									  <td>'.$ItemQuant.'</td>
 									  <td>'.$ItemDesc.'</td>
+									  <td>$'.$ItemPrice.'</td>
 									  <td> 
 										<form action="editproduct.php" method="POST">
 											<input type ="hidden" id="ItemName" name="ItemName" value="'.$ItemName.'"/>

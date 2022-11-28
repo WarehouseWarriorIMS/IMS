@@ -7,6 +7,7 @@
 	$Category = $_POST['Category'];
 	$Quantity = $_POST['Quantity'];
 	$Description = $_POST['Description'];
+	$Price = $_POST['Price'];
 
 
 	$servername = "localhost";
@@ -15,7 +16,7 @@
 
 	
 	try{
-		$command = "INSERT INTO $table_name(`Item Name`, `Item Category`, `Item Quantity`, `Item Description`) VALUES ('".$ItemName."', '".$Category."', '".$Quantity."', '".$Description."')";
+		$command = "INSERT INTO $table_name(`Item Name`, `Item Category`, `Item Quantity`, `Item Description`, `Item Price`) VALUES ('".$ItemName."', '".$Category."', '".$Quantity."', '".$Description."', '".$Price."')";
 
 		$conn = new PDO("mysql:host=localhost;dbname=inventory_ww", 'root', '');
 		$conn->exec($command);

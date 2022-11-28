@@ -8,6 +8,7 @@
 	$Category = $_POST['Category'];
 	$Quantity = $_POST['Quantity'];
 	$Description = $_POST['Description'];
+	$Price = $_POST['Price'];
 
 
 	$servername = "localhost";
@@ -36,8 +37,11 @@
 		if($Description == ''){
 			$Description = $row['Item Description'];
 			}
+		if($Price == ''){
+			$Price = $row['Item Price'];
+			}
 
-		$command = "UPDATE $table_name SET `Item Name`='".$ItemName."',`Item Category`='".$Category."',`Item Quantity`='".$Quantity."',`Item Description`='".$Description."' WHERE `Item Name`='".$CurrentName."'" ;
+		$command = "UPDATE $table_name SET `Item Name`='".$ItemName."',`Item Category`='".$Category."',`Item Quantity`='".$Quantity."',`Item Description`='".$Description."', `Item Price`='".$Price."' WHERE `Item Name`='".$CurrentName."'" ;
 
 
 		$conn->exec($command);

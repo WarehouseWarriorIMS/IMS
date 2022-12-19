@@ -34,8 +34,23 @@
 								<span class="fa fa-bar-chart"></span>
 								<div class="middle">
 									<div class="left">
-										<h3>Total Sales</h3>
-										<h1>$25,025</h1>
+										<h3>Total Price in Inventory</h3>
+									<?php
+										$query = 'SELECT * FROM products';
+										$conn = new PDO("mysql:host=localhost;dbname=inventory_ww", 'root', '');
+										$totalPrice = 0;
+										$stmt = $conn->prepare($query);
+										$stmt->execute();
+										if($stmt->rowCount() > 0){
+											while($row = $stmt->fetch()) {
+												$ItemQuant = $row['Item Quantity'];
+												$ItemPrice = $row['Item Price'];
+												$totalPrice = $totalPrice + ($ItemQuant * $ItemPrice);
+											}
+										}
+										echo '
+										<h1>$'.$totalPrice.'</h1>'
+									?>
 									</div>
 									<div class="progress">
 									</div>
@@ -47,8 +62,23 @@
 								<span class="fas fa-chart-area"></span>
 								<div class="middle">
 									<div class="left">
-										<h3>Total Expenses</h3>
-										<h1>$14,160</h1>
+									<?php
+										$query = 'SELECT * FROM orders WHERE `Delivered`=0';
+										$conn = new PDO("mysql:host=localhost;dbname=inventory_ww", 'root', '');
+										$totalOrderPrice = 0;
+										$stmt = $conn->prepare($query);
+										$stmt->execute();
+										if($stmt->rowCount() > 0){
+											while($row = $stmt->fetch()) {
+												$ItemQuant = $row['Item Quantity'];
+												$ItemPrice = $row['Item Price'];
+												$totalOrderPrice = $totalOrderPrice + ($ItemQuant * $ItemPrice);
+											}
+										}
+										echo '
+										<h3>Total Pending Order Income</h3>
+										<h1>$'.$totalOrderPrice.'</h1>'
+									?>
 									</div>
 									<div class="progress">
 									</div>
@@ -60,8 +90,23 @@
 								<span class="fas fa-coins"></span>
 								<div class="middle">
 									<div class="left">
-										<h3>Total Income</h3>
-										<h1>$10,864</h1>
+									<?php
+										$query = 'SELECT * FROM `orders` WHERE `Delivered`=1';
+										$conn = new PDO("mysql:host=localhost;dbname=inventory_ww", 'root', '');
+										$totalIncome = 0;
+										$stmt = $conn->prepare($query);
+										$stmt->execute();
+										if($stmt->rowCount() > 0){
+											while($row = $stmt->fetch()) {
+												$ItemQuant = $row['Item Quantity'];
+												$ItemPrice = $row['Item Price'];
+												$totalIncome= $totalIncome + ($ItemQuant * $ItemPrice);
+											}
+										}
+										echo '
+										<h3>Total Delivered Order Income</h3>
+										<h1>$'.$totalIncome.'</h1>'
+									?>
 									</div>
 									<div class="progress">	
 									</div>
